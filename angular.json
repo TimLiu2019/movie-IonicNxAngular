@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "projects": {
+    "movie": {
+      "projectType": "application",
+      "root": "apps/movie",
+      "sourceRoot": "apps/movie/src",
+      "prefix": "ionicnx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/movie",
+            "index": "apps/movie/src/index.html",
+            "main": "apps/movie/src/main.ts",
+            "polyfills": "apps/movie/src/polyfills.ts",
+            "tsConfig": "apps/movie/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/movie/src/favicon.ico", "apps/movie/src/assets"],
+            "styles": ["apps/movie/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/movie/src/environments/environment.ts",
+                  "with": "apps/movie/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "movie:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "movie:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "movie:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/movie/src/**/*.ts",
+              "apps/movie/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/movie"],
+          "options": {
+            "jestConfig": "apps/movie/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movie-e2e": {
+      "root": "apps/movie-e2e",
+      "sourceRoot": "apps/movie-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/movie-e2e/cypress.json",
+            "tsConfig": "apps/movie-e2e/tsconfig.e2e.json",
+            "devServerTarget": "movie:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "movie:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/movie-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "movie"
+}
