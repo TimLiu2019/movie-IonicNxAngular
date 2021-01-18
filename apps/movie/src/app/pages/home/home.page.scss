@@ -1,0 +1,40 @@
+.home-header-div {
+  border-bottom: 1px solid lightgray;
+}
+
+.home-page-left-btn-group .home-page-left-menu-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: darkgray;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  display: inline-block;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.home-page-left-btn-group .home-page-left-menu-button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+.home-page-left-btn-group .home-page-left-menu-button:hover {
+  // background-color: white;
+  color: darkslategray;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.1s;
+}
+
+.home-page-left-menu-button:active {
+  transform: translateY(3px);
+}
+
+.home-page-left-icon {
+  padding-bottom: 0.1em;
+  width:2em;
+  height:2em;
+}
+.home-page-left-btn-clicked {
+  color: darkslategray !important;
+}

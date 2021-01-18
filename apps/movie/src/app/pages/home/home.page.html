@@ -1,0 +1,136 @@
+<div
+  class="w3-cell-row"
+  style="position: absolute; left: 0; right: 0; top: 0; height: 20px"
+>
+  <div class="w3-col s1 w3-center w3-light-gray">1</div>
+  <div class="w3-col s1 w3-center">2</div>
+  <div class="w3-col s1 w3-center w3-light-gray">3</div>
+  <div class="w3-col s1 w3-center">4</div>
+  <div class="w3-col s1 w3-center w3-light-gray">5</div>
+  <div class="w3-col s1 w3-center">6</div>
+  <div class="w3-col s1 w3-center w3-light-gray">7</div>
+  <div class="w3-col s1 w3-center">8</div>
+  <div class="w3-col s1 w3-center w3-light-gray">9</div>
+  <div class="w3-col s1 w3-center">10</div>
+  <div class="w3-col s1 w3-center w3-light-gray">11</div>
+  <div class="w3-col s1 w3-center">12</div>
+</div>
+
+<!-- Header -->
+<div
+  class="home-header-div"
+  style="
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    height: 100px;
+    border-top: 1px solid lightgray;
+  "
+>
+  <div
+    class="w3-col w3-container s5 w3-light-gray"
+    style="padding: 0; height: 100px"
+  ></div>
+  <div
+    class="w3-col w3-container s7"
+    style="padding: 0; border-left: 1px solid lightgrey; height: 100px"
+  ></div>
+  <!-- <div class="w3-col w3-container s3 w3-light-gray" style="padding: 0; height: 100px;">
+
+  </div> -->
+</div>
+
+<!-- The main App content
+  -- SUPER IMPORTANT: the height: calc(100vh - (header + footer)px);
+  -- pattern:
+  --     Markup above will be the header area
+  --     Sizes the content to the browser height (minus header and foot static height)
+  --     ion-content will scroll the center area.
+  -->
+<ion-content
+  style="
+    --overflow: hidden;
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: calc(100vw - 100px);
+    min-width: 924px;
+    height: calc(100vh - 140px);
+  "
+>
+  <!-- Where the main tab lazy loaded UI's live -->
+  <div id="containingPage" class="" style="height: 100%; margin: 0; padding: 0">
+    <app-dynamic-content-outlet #qtMovieContainer></app-dynamic-content-outlet>
+  </div>
+</ion-content>
+
+<!-- Left Menu Bar -->
+<!-- <div class="w3-col s1 w3-center w3-light-gray w3-border-right" style="height: 100%; min-height: 600px; max-width: 100px;"> -->
+<div
+  style="
+    position: absolute;
+    width: 100px;
+    height: calc(100vh - 140px);
+    top: 120px;
+    left: 0;
+    border-right: 1px solid lightgray;
+  "
+  class="w3-light-gray"
+>
+  <div class="home-page-left-btn-group">
+    <br />
+
+    <button
+      class="home-page-left-menu-button"
+      (click)="movieBtnClicked($event)"
+      id="movieBtn"
+    >
+      <ion-icon name="videocam-outline" class="home-page-left-icon"></ion-icon>
+      <br />Movie
+    </button>
+    <button class="home-page-left-menu-button">
+      <ion-icon name="people" class="home-page-left-icon"></ion-icon>
+      <br />Customers
+    </button>
+    <button class="home-page-left-menu-button">
+      <ion-icon name="copy" class="home-page-left-icon"></ion-icon>
+      <br />Rentals
+    </button>
+    <button class="home-page-left-menu-button">
+      <ion-icon name="swap" class="home-page-left-icon"></ion-icon>
+      <br />Login
+    </button>
+    <button class="home-page-left-menu-button">
+      <ion-icon name="construct" class="home-page-left-icon"></ion-icon>
+      <br />Tools
+    </button>
+  </div>
+</div>
+
+<!-- Footer -->
+<div
+  class="w3-cell-row"
+  style="
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    bottom: 0;
+    border-top: 1px solid lightgray;
+    background-color: #f1f1f1;
+  "
+>
+  <div class="w3-col s3 w3-white">
+    <span style="font-size: 12px; color: #9e9e9e">Footer 1</span>
+  </div>
+  <div class="w3-col s6 w3-center">
+    <span style="font-size: 12px; color: #9e9e9e">Footer 2</span>
+  </div>
+  <div class="w3-col s3 w3-white">
+    <span
+      style="font-size: 12px; color: #9e9e9e; float: right; margin-right: 1em"
+      >Powered by TimLiu</span
+    >
+  </div>
+</div>
