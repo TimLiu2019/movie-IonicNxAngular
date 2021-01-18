@@ -12,7 +12,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomePageModule } from './pages/home/home.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declaratiogitns: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
