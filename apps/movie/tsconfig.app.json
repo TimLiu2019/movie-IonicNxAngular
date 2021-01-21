@@ -4,5 +4,6 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
+  "include": ["**/*.ts"],
   "files": ["src/main.ts", "src/polyfills.ts"]
 }

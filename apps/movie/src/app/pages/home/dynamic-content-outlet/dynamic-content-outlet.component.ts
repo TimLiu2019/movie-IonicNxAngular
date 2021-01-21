@@ -106,7 +106,7 @@ export class DynamicContentOutletComponent
     );
 
     // Fill the required properties
-    const elementInstance: MtFormComponentBase = <any>component.instance;
+    const elementInstance: MtFormComponentBase = (<any>component.instance);
     elementInstance.uiDescription = uiDescription;
 
     // and insert it

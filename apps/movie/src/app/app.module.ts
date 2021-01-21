@@ -10,15 +10,18 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomePageModule } from './pages/home/home.module';
+import { DynamicContentOutletModule } from './pages/home/dynamic-content-outlet/dynamic-content-outlet.module';
 
 @NgModule({
-  declaratiogitns: [AppComponent],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
+  
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
+    DynamicContentOutletModule
   ],
   providers: [
     StatusBar,

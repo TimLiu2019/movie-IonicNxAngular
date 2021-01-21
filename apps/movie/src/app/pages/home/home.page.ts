@@ -68,7 +68,7 @@ export class HomePage implements OnInit, AfterViewInit {
       return;
     }
     // This handles the creation/hide/show for the main UI areas
-    this.doBuildHideOrShow('MOVIE', registryComponent, this.qtMovieUI);
+    this.doBuildHideOrShow('HOME_MOVIE', registryComponent, this.qtMovieUI);
   }
 
   // movieBtnClicked
@@ -90,6 +90,6 @@ export class HomePage implements OnInit, AfterViewInit {
     }
     this.previousClickedBtn = 'movieBtn';
     localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
-    this.render('MOVIE');
+    this.render('HOME_MOVIE');
   }
 }

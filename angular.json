@@ -10,6 +10,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "lazyModules": [
+              "apps/movie/src/app/pages/home/dynamic-content-outlet/dynamic-components-map.module"
+          ],
             "outputPath": "dist/apps/movie",
             "index": "apps/movie/src/index.html",
             "main": "apps/movie/src/main.ts",
@@ -118,9 +121,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/movie"
-          ],
+          "outputs": ["coverage/apps/movie"],
           "options": {
             "jestConfig": "apps/movie/jest.config.js",
             "passWithNoTests": true
@@ -173,9 +174,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/movie-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/movie-e2e/**/*.{js,ts}"]
           }
         }
       }
