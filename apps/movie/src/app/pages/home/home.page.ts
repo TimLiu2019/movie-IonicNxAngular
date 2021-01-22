@@ -17,9 +17,12 @@ export class HomePage implements OnInit, AfterViewInit {
   // The dynamic content container that holds our dynamically created components
   @ViewChild('qtMovieContainer', { static: true })
   qtMovieUI: DynamicContentOutletComponent;
-  
+
   @ViewChild('qtCustomersContainer', { static: true })
   qtCustomersUI: DynamicContentOutletComponent;
+
+  @ViewChild('qtRentalsContainer', { static: true })
+  qtRentalsUI: DynamicContentOutletComponent;
 
   public previousClickedBtn: string;
 
@@ -32,7 +35,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.render('HOME_MOVIE')
+    this.render('HOME_MOVIE');
   }
 
   // doBuildHideOrShow
@@ -74,7 +77,16 @@ export class HomePage implements OnInit, AfterViewInit {
     }
     // This handles the creation/hide/show for the main UI areas
     this.doBuildHideOrShow('HOME_MOVIE', registryComponent, this.qtMovieUI);
-    this.doBuildHideOrShow('HOME_CUSTOMERS', registryComponent, this.qtCustomersUI);
+    this.doBuildHideOrShow(
+      'HOME_CUSTOMERS',
+      registryComponent,
+      this.qtCustomersUI
+    );
+    this.doBuildHideOrShow(
+      'HOME_RENTALS',
+      registryComponent,
+      this.qtRentalsUI
+    );
   }
 
   // movieBtnClicked
@@ -99,8 +111,8 @@ export class HomePage implements OnInit, AfterViewInit {
     this.render('HOME_MOVIE');
   }
 
-  // movieBtnClicked
-  // Show movie UI
+  // customersBtnClicked
+  // Show customers UI
   customersBtnClicked($event: MouseEvent) {
     document
       .getElementById('customersBtn')
@@ -119,5 +131,27 @@ export class HomePage implements OnInit, AfterViewInit {
     this.previousClickedBtn = 'customersBtn';
     localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
     this.render('HOME_CUSTOMERS');
+  }
+
+  // customersBtnClicked
+  // Show customers UI
+  rentalsBtnClicked($event: MouseEvent) {
+    document
+      .getElementById('rentalsBtn')
+      .classList.remove('home-page-left-btn-clicked');
+    document
+      .getElementById('rentalsBtn')
+      .classList.add('home-page-left-btn-clicked');
+    if (this.previousClickedBtn !== undefined) {
+      if (localStorage.getItem('clickedLeftMenuBtn') !== 'rentalsBtn') {
+        console.log(localStorage.getItem('clickedLeftMenuBtn'));
+        document
+          .getElementById(localStorage.getItem('clickedLeftMenuBtn'))
+          .classList.remove('home-page-left-btn-clicked');
+      }
+    }
+    this.previousClickedBtn = 'rentalsBtn';
+    localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
+    this.render('HOME_RENTALS');
   }
 }

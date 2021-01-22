@@ -7,6 +7,7 @@ import { UiKitMtWebSharedComponentsModule } from '../../../../../../../libs/ui-k
 import { MtWebTier1ABasementModule } from '../../../../../../../libs/utils/mt-web-basement/src/lib/mt-web-tier1-a-basement.module';
 import { MovieComponent } from '../movie/movie.component';
 import { CustomersComponent } from '../../../components/customers/customers.component';
+import { RentalsComponent } from '../../../components/rentals/rentals.component';
 
 @NgModule({
   declarations: [MovieComponent],
@@ -26,5 +27,6 @@ export class DynamicComponentsMapModule {
   static dynamicComponentsMap = {
     MovieComponent,
     CustomersComponent,
+    RentalsComponent
   };
 }

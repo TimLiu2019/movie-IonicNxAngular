@@ -65,6 +65,9 @@
     <app-dynamic-content-outlet
       #qtCustomersContainer
     ></app-dynamic-content-outlet>
+    <app-dynamic-content-outlet
+      #qtRentalsContainer
+    ></app-dynamic-content-outlet>
   </div>
 </ion-content>
 
@@ -100,12 +103,16 @@
       <ion-icon name="people" class="home-page-left-icon"></ion-icon>
       <br />Customers
     </button>
-    <button class="home-page-left-menu-button">
+    <button
+      class="home-page-left-menu-button"
+      (click)="rentalsBtnClicked($event)"
+      id="rentalsBtn"
+    >
       <ion-icon name="copy" class="home-page-left-icon"></ion-icon>
       <br />Rentals
     </button>
     <button class="home-page-left-menu-button">
-      <ion-icon name="swap" class="home-page-left-icon"></ion-icon>
+      <ion-icon name="log-in" class="home-page-left-icon"></ion-icon>
       <br />Login
     </button>
     <button class="home-page-left-menu-button">

@@ -12,9 +12,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomePageModule } from './pages/home/home.module';
 import { DynamicContentOutletModule } from './pages/home/dynamic-content-outlet/dynamic-content-outlet.module';
 import { CustomersComponent } from './components/customers/customers.component';
+import { RentalsComponent } from './components/rentals/rentals.component';
 
 @NgModule({
-  declarations: [AppComponent, CustomersComponent],
+  declarations: [AppComponent, CustomersComponent, RentalsComponent],
   imports: [
 
   BrowserModule,
