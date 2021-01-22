@@ -11,11 +11,12 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomePageModule } from './pages/home/home.module';
 import { DynamicContentOutletModule } from './pages/home/dynamic-content-outlet/dynamic-content-outlet.module';
+import { CustomersComponent } from './components/customers/customers.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CustomersComponent],
   imports: [
-  
+
   BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -62,6 +62,9 @@
   <!-- Where the main tab lazy loaded UI's live -->
   <div id="containingPage" class="" style="height: 100%; margin: 0; padding: 0">
     <app-dynamic-content-outlet #qtMovieContainer></app-dynamic-content-outlet>
+    <app-dynamic-content-outlet
+      #qtCustomersContainer
+    ></app-dynamic-content-outlet>
   </div>
 </ion-content>
 
@@ -89,7 +92,11 @@
       <ion-icon name="videocam-outline" class="home-page-left-icon"></ion-icon>
       <br />Movie
     </button>
-    <button class="home-page-left-menu-button">
+    <button
+      class="home-page-left-menu-button"
+      (click)="customersBtnClicked($event)"
+      id="customersBtn"
+    >
       <ion-icon name="people" class="home-page-left-icon"></ion-icon>
       <br />Customers
     </button>

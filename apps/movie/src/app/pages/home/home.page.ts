@@ -17,6 +17,9 @@ export class HomePage implements OnInit, AfterViewInit {
   // The dynamic content container that holds our dynamically created components
   @ViewChild('qtMovieContainer', { static: true })
   qtMovieUI: DynamicContentOutletComponent;
+  
+  @ViewChild('qtCustomersContainer', { static: true })
+  qtCustomersUI: DynamicContentOutletComponent;
 
   public previousClickedBtn: string;
 
@@ -28,7 +31,9 @@ export class HomePage implements OnInit, AfterViewInit {
     // DocumentUtils.setPageMargins(document, 0, 0, 0, 0);
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.render('HOME_MOVIE')
+  }
 
   // doBuildHideOrShow
   // elementType - Registry key, i.e. 'HOME_CONTENT'
@@ -69,6 +74,7 @@ export class HomePage implements OnInit, AfterViewInit {
     }
     // This handles the creation/hide/show for the main UI areas
     this.doBuildHideOrShow('HOME_MOVIE', registryComponent, this.qtMovieUI);
+    this.doBuildHideOrShow('HOME_CUSTOMERS', registryComponent, this.qtCustomersUI);
   }
 
   // movieBtnClicked
@@ -91,5 +97,27 @@ export class HomePage implements OnInit, AfterViewInit {
     this.previousClickedBtn = 'movieBtn';
     localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
     this.render('HOME_MOVIE');
+  }
+
+  // movieBtnClicked
+  // Show movie UI
+  customersBtnClicked($event: MouseEvent) {
+    document
+      .getElementById('customersBtn')
+      .classList.remove('home-page-left-btn-clicked');
+    document
+      .getElementById('customersBtn')
+      .classList.add('home-page-left-btn-clicked');
+    if (this.previousClickedBtn !== undefined) {
+      if (localStorage.getItem('clickedLeftMenuBtn') !== 'customersBtn') {
+        console.log(localStorage.getItem('clickedLeftMenuBtn'));
+        document
+          .getElementById(localStorage.getItem('clickedLeftMenuBtn'))
+          .classList.remove('home-page-left-btn-clicked');
+      }
+    }
+    this.previousClickedBtn = 'customersBtn';
+    localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
+    this.render('HOME_CUSTOMERS');
   }
 }

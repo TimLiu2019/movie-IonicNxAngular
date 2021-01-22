@@ -1,6 +1,4 @@
-
 import { RegistryItem } from '../../../../../../../libs/utils/mt-web-basement/src/utils/dynamicLazyLoad/dynamic-content-registry-item';
-
 
 // FormRegistryUtil
 // Utility methods for the DynamicContentOutletRegistry
@@ -31,6 +29,13 @@ export const DynamicContentOutletRegistry: RegistryItem[] = [
   {
     componentName: 'MovieComponent',
     elementType: 'HOME_MOVIE',
+    modulePath:
+      'apps/movie/src/app/pages/home/dynamic-content-outlet/dynamic-components-map.module',
+    moduleName: 'DynamicComponentsMapModule',
+  },
+  {
+    componentName: 'CustomersComponent',
+    elementType: 'HOME_CUSTOMERS',
     modulePath:
       'apps/movie/src/app/pages/home/dynamic-content-outlet/dynamic-components-map.module',
     moduleName: 'DynamicComponentsMapModule',
