@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsModule } from '../../../components/components';
 
 @Component({
   selector: 'ionicnx-movie',

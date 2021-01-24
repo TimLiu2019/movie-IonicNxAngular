@@ -1,0 +1,38 @@
+.filter-border {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: solid 1px lightgray;
+    height: calc(100vh - 217px);
+    overflow: hidden;
+    margin: 0 0 0 0.5%;
+  }
+  .tab-section {
+    height: calc(100vh - 217px);
+    padding: 1px 10px 10px 0;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    margin: 2px 0.5% 10px 0.5%;
+    width: 73%;
+    overflow: hidden;
+    font-size: 12px;
+    position: absolute;
+    left: 26.0%;
+    bottom: 2px;
+  }
+  
+
+  .btn-type {
+    font-size: 1.8vh;
+    text-transform: none;
+    --padding-start: 2px;
+    margin: 0;
+  }
+  .type-selected {
+    font-weight: bold;
+  }
+
+  
+  ion-button {
+    text-transform: none;
+  }
+  

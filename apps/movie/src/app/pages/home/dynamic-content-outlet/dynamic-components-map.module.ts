@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { ComponentsModule } from '../../../../../../../libs/utils/mt-web-basement/src/components/components';
+import { ComponentsModule } from '../../../components/components';
 import { DynamicContentOutletModule } from './dynamic-content-outlet.module';
 import { UiKitMtWebSharedComponentsModule } from '../../../../../../../libs/ui-kit/mt-web-shared-components/src/lib/ui-kit-mt-web-shared-components.module';
 import { MtWebTier1ABasementModule } from '../../../../../../../libs/utils/mt-web-basement/src/lib/mt-web-tier1-a-basement.module';
@@ -12,7 +12,7 @@ import { RentalsComponent } from '../../../components/rentals/rentals.component'
 @NgModule({
   declarations: [MovieComponent],
   imports: [
-    CommonModule,
+  CommonModule,
     IonicModule,
     DynamicContentOutletModule,
     ComponentsModule,

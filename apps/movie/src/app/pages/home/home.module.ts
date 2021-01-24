@@ -7,14 +7,14 @@ import {HomePage} from './home.page';
 import {RouterModule} from "@angular/router";
 import {DynamicContentOutletModule} from "./dynamic-content-outlet/dynamic-content-outlet.module";
 import { MovieComponent } from './movie/movie.component';
-//import { ComponentsModule } from '../../../components/components';
+import { ComponentsModule } from '../../components/components';
 
 @NgModule({
   imports: [
-    IonicModule,
+  IonicModule,
     CommonModule,
     FormsModule,
-  //  ComponentsModule,
+    ComponentsModule,
     
     RouterModule.forChild([
       {

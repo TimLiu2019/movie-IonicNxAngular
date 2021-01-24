@@ -7,23 +7,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { RouteReuseStrategy } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomePageModule } from './pages/home/home.module';
 import { DynamicContentOutletModule } from './pages/home/dynamic-content-outlet/dynamic-content-outlet.module';
 import { CustomersComponent } from './components/customers/customers.component';
 import { RentalsComponent } from './components/rentals/rentals.component';
+import { ComponentsModule } from './components/components';
 
 @NgModule({
   declarations: [AppComponent, CustomersComponent, RentalsComponent],
   imports: [
-
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
-    DynamicContentOutletModule
+    DynamicContentOutletModule,
+    CommonModule,
+    ComponentsModule,
   ],
   providers: [
     StatusBar,
