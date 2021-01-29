@@ -14,5 +14,14 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.movieList = this.movieService.getMovies();
   }
+  onChangeLike(movie:Movie){
+    if(movie.like == true){
+      movie.like = false;
+    } else {
+      movie.like = true;
+    }
+
+
+  }
 
 }

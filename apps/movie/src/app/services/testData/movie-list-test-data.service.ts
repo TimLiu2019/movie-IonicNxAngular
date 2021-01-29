@@ -14,6 +14,7 @@ export class MovieListTestDataService {
       genre: 'Comedy',
       stock: '7',
       rate: '3.5',
+      like: true,
     },
     {
       guid: '579cec46-7682-4025-a2f4-9e158c756fdt',
@@ -21,6 +22,7 @@ export class MovieListTestDataService {
       genre: 'Action',
       stock: '10',
       rate: '4',
+      like: false,
     },
     {
       guid: '579cec46-7682-4025-a2f4-9e158c756fdm',
@@ -28,6 +30,7 @@ export class MovieListTestDataService {
       genre: 'Action',
       stock: '9',
       rate: '4.5',
+      like: true,
     },
   ];
   getMovies() {
@@ -41,6 +44,7 @@ export class MovieListTestDataService {
       movie.genre = m.genre;
       movie.stock = m.stock;
       movie.rate = m.rate;
+      movie.like = m.like;
       console.log('movie ', movie);
       movies.push(movie);
     }

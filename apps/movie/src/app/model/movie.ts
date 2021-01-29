@@ -4,6 +4,7 @@ export class Movie {
   private Rate: string;
   private Genre: string;
   private Stock: string;
+  private Like: boolean;
 
   constructor() {}
 
@@ -43,5 +44,13 @@ export class Movie {
 
   set stock(value: string) {
     this.Stock = value;
+  }
+
+  get like(): boolean {
+    return this.Like;
+  }
+
+  set like(value: boolean) {
+    this.Like = value;
   }
 }

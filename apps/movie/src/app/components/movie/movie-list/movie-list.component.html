@@ -60,7 +60,7 @@
         <ion-label></ion-label>
       </ion-col>
     </ion-item>
-    <ion-item  *ngFor="let movie of movieList; ">
+    <ion-item  *ngFor="let movie of movieList; let i = index ">
             <ion-col
             size="1.8"
             size-lg="1.8"
@@ -104,7 +104,17 @@
         size-sm="2"
         size-xl="2"
       >
-        <ion-label></ion-label>
+        <ion-label *ngIf="movie.like ; else elseBlock"><ion-icon name="heart-outline" style="cursor:pointer;" (click) = onChangeLike(movie)></ion-icon></ion-label>
+       <ng-template #elseBlock> <ion-label style="cursor:pointer;" (click) = onChangeLike(movie) ><ion-icon name="heart"></ion-icon></ion-label></ng-template>
+      </ion-col>
+      <ion-col
+        size="2"
+        size-lg="2"
+        size-md="2"
+        size-sm="2"
+        size-xl="2"
+      >
+        <ion-button color="danger" style="text-transform: none">Delete</ion-button>
       </ion-col>
 
     </ion-item>
