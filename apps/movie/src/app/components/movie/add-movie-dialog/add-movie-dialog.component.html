@@ -1,0 +1,68 @@
+<ion-content>
+  <ion-button (click)="closeModal()" fill="clear" style="float: right">
+    <ion-icon name="close" style="color: black"></ion-icon>
+  </ion-button>
+  <ion-grid class="smallPadding">
+    <ion-list>
+      <ion-col>
+        <ion-title style="font-size: 22px; padding: 0; margin: 0"
+          >Add a new movie</ion-title
+        >
+        <form
+          (submit)="logAddMovieForm()"
+          [formGroup]="addMovieForm"
+          style="padding: 0; margin: 0"
+        >
+          <ion-item>
+            <ion-label><b>Title: </b></ion-label>
+            <ion-input
+              clearInput
+              formControlName="title"
+              required
+              type="text"
+              value="{{ title }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><b>Genre: </b></ion-label>
+            <ion-input
+              clearInput
+              formControlName="genre"
+              required
+              type="text"
+              value="{{ genre }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><b>Stock: </b></ion-label>
+            <ion-input
+              clearInput
+              formControlName="stock"
+              required
+              type="text"
+              value="{{ stock }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><b>Rate: </b></ion-label>
+            <ion-input
+              clearInput
+              formControlName="rate"
+              required
+              type="text"
+              value="{{ rate }}"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-button (click)="closeModal()" fill="clear">Cancel</ion-button>
+          <ion-button
+            [disabled]="!addMovieForm.valid"
+            fill="clear"
+            type="submit"
+            >Add</ion-button
+          >
+        </form>
+      </ion-col>
+    </ion-list>
+  </ion-grid>
+</ion-content>
