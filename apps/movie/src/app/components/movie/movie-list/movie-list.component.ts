@@ -3,6 +3,7 @@ import { MovieListTestDataService } from '../../../services/testData/movie-list-
 import { Movie } from '../../../model/movie';
 import { AlertController, PopoverController } from '@ionic/angular';
 import { Guid } from 'guid-typescript';
+import {cloneDeep} from 'lodash';
 import { AddMovieDialogComponent } from '../add-movie-dialog/add-movie-dialog.component';
 
 @Component({
@@ -62,4 +63,36 @@ export class MovieListComponent implements OnInit {
   onAddMoviesClick() {
     this.presentAddMovieModal();
   }
+ 
+
+      // popup: delete a movie
+      onDeleteMovie(movie: Movie) {
+        this.alertCtrl.create({
+            header: 'Delete a movie',
+            message: 'Do you want to delete the movie: ' + movie.title  + '?',
+            buttons: [
+                {
+                    text: 'Cancel'
+                },
+                {
+                    text: 'Delete',
+                    handler: () => {
+                        console.log('Delete the movie');
+                        const indexInAll = this.movieList.indexOf(movie);
+                        const myClonedArray = cloneDeep(this.movieList);
+                        //      console.log('index in all:' + indexInAll);
+                        try {
+                            myClonedArray.splice(indexInAll, 1);
+                        } catch (e) {
+                            console.error(e);
+                        }
+                      this.movieList = myClonedArray;
+                      
+                    }
+                }
+            ]
+        }).then((prompt) => {
+            prompt.present();
+        });
+    }
 }
