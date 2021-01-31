@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { AddMovieDialogComponent } from './movie/add-movie-dialog/add-movie-dialog.component';
+import { ListGroupComponent } from './movie/list-group/list-group.component';
 
 @NgModule({
     imports: [
@@ -15,8 +16,8 @@ CommonModule,
         ReactiveFormsModule,
         HttpClientModule,
     ],
-    declarations: [ MovieListComponent, AddMovieDialogComponent],
-    exports: [MovieListComponent,AddMovieDialogComponent],
+    declarations: [ MovieListComponent, AddMovieDialogComponent, ListGroupComponent],
+    exports: [MovieListComponent,AddMovieDialogComponent, ListGroupComponent],
 })
 export class ComponentsModule {
 }

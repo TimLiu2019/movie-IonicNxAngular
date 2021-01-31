@@ -48,6 +48,7 @@
     "@ionic/pwa-elements": "^1.4.1",
     "@nrwl/angular": "11.1.5",
     "@types/mocha": "^8.2.0",
+    "bootstrap": "^4.6.0",
     "guid-typescript": "^1.0.9",
     "hammerjs": "^2.0.8",
     "lodash.clonedeep": "^4.5.0",

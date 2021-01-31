@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieListTestDataService } from '../../../services/testData/movie-list-test-data.service';
 import { Movie } from '../../../model/movie';
 import { AlertController, PopoverController } from '@ionic/angular';
 import { Guid } from 'guid-typescript';
-import {cloneDeep} from 'lodash';
+import { cloneDeep } from 'lodash';
 import { AddMovieDialogComponent } from '../add-movie-dialog/add-movie-dialog.component';
 
 @Component({
@@ -13,6 +13,9 @@ import { AddMovieDialogComponent } from '../add-movie-dialog/add-movie-dialog.co
 })
 export class MovieListComponent implements OnInit {
   public movieList = new Array<Movie>();
+  public movies = new Array<Movie>();
+  public temp = new Array<Movie>();
+  @Input('genreSelected') genreSelected: any;
   constructor(
     private movieService: MovieListTestDataService,
     private popoverController: PopoverController,
@@ -20,7 +23,11 @@ export class MovieListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.movieList = this.movieService.getMovies();
+    this.movies = this.movieService.getMovies();
+    this.movieList = this.moviesFilter();
+  }
+  ngDoCheck():void{
+    this.movieList = this.moviesFilter();
   }
   // change like
   onChangeLike(movie: Movie) {
@@ -63,36 +70,54 @@ export class MovieListComponent implements OnInit {
   onAddMoviesClick() {
     this.presentAddMovieModal();
   }
- 
 
-      // popup: delete a movie
-      onDeleteMovie(movie: Movie) {
-        this.alertCtrl.create({
-            header: 'Delete a movie',
-            message: 'Do you want to delete the movie: ' + movie.title  + '?',
-            buttons: [
-                {
-                    text: 'Cancel'
-                },
-                {
-                    text: 'Delete',
-                    handler: () => {
-                        console.log('Delete the movie');
-                        const indexInAll = this.movieList.indexOf(movie);
-                        const myClonedArray = cloneDeep(this.movieList);
-                        //      console.log('index in all:' + indexInAll);
-                        try {
-                            myClonedArray.splice(indexInAll, 1);
-                        } catch (e) {
-                            console.error(e);
-                        }
-                      this.movieList = myClonedArray;
-                      
-                    }
-                }
-            ]
-        }).then((prompt) => {
-            prompt.present();
-        });
+  // popup: delete a movie
+  onDeleteMovie(movie: Movie) {
+    this.alertCtrl
+      .create({
+        header: 'Delete a movie',
+        message: 'Do you want to delete the movie: ' + movie.title + '?',
+        buttons: [
+          {
+            text: 'Cancel',
+          },
+          {
+            text: 'Delete',
+            handler: () => {
+              console.log('Delete the movie');
+              const indexInAll = this.movieList.indexOf(movie);
+              const myClonedArray = cloneDeep(this.movieList);
+              //      console.log('index in all:' + indexInAll);
+              try {
+                myClonedArray.splice(indexInAll, 1);
+              } catch (e) {
+                console.error(e);
+              }
+              this.movieList = myClonedArray;
+            },
+          },
+        ],
+      })
+      .then((prompt) => {
+        prompt.present();
+      });
+  }
+
+  moviesFilter() {
+   
+    if (this.genreSelected == 'listGroupAllGenres') {
+      this.temp = this.movies;
+      console.log('genreSelected in list: ', this.genreSelected)
+    } else if (this.genreSelected == 'listGroupAction') {
+      this.temp = this.movies.filter((item) => item.genre === 'Action');
+      console.log('genreSelected in list: ', this.genreSelected)
+    } else if (this.genreSelected == 'listGroupComedy') {
+      this.temp = this.movies.filter((item) => item.genre === 'Comedy');
+      console.log('genreSelected in list: ', this.genreSelected)
+    } else if (this.genreSelected == 'listGroupThriller') {
+      this.temp = this.movies.filter((item) => item.genre === 'Thriller');
+      console.log('genreSelected in list: ', this.genreSelected)
     }
+      return this.temp;
+  }
 }

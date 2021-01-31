@@ -7,10 +7,16 @@ import { ComponentsModule } from '../../../components/components';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-
+  public genre : any;
+  public genreSelected :any;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  receiveSelectedGenreMessage(value: any) {
+    this.genreSelected = value;
+    console.log('genre message' + value);
   }
 
 }
