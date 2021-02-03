@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PopoverController } from '@ionic/angular';
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 @Component({
   selector: 'ionicnx-add-movie-dialog',
@@ -9,7 +10,7 @@ import { PopoverController } from '@ionic/angular';
 })
 export class AddMovieDialogComponent implements OnInit {
   title: string;
-  stock: string;
+  stock: number;
   genre: string;
   rate: string;
   index: any;
@@ -23,7 +24,7 @@ export class AddMovieDialogComponent implements OnInit {
       title: [''],
       genre: [''],
       rate: [''],
-      stock: [''],
+      stock: [null ,[Validators.required,Validators.min(0), Validators.max(100), Validators.pattern(/\-?\d*\.?\d{1,2}/)]],
     });
   }
 

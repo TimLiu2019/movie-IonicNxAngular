@@ -3,7 +3,7 @@ export class Movie {
   private Title: string;
   private Rate: string;
   private Genre: string;
-  private Stock: string;
+  private Stock: number;
   private Like: boolean;
 
   constructor() {}
@@ -38,11 +38,11 @@ export class Movie {
   set genre(value: string) {
     this.Genre = value;
   }
-  get stock(): string {
+  get stock(): number {
     return this.Stock;
   }
 
-  set stock(value: string) {
+  set stock(value: number) {
     this.Stock = value;
   }
 

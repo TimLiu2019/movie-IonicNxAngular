@@ -63,7 +63,7 @@ export class MovieListComponent implements OnInit {
         newMovie.like = true;
         newMovie.title = String(data.data.title);
         newMovie.genre = String(data.data.genre);
-        newMovie.stock = String(data.data.stock);
+        newMovie.stock = Number(data.data.stock);
         newMovie.rate = String(data.data.rate);
         this.movies.push(newMovie);
         this.movieList = this.movies;
