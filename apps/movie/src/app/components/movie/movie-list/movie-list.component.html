@@ -1,8 +1,14 @@
 <ion-content>
-  <ion-button style="text-transform: none; float: left; margin: 10px" (click)=onAddMoviesClick()>
-    New Movie
-  </ion-button>
-  <ion-searchbar></ion-searchbar>
+  <ion-item >
+  <ion-button  fill='clear'  style="text-transform: none; float: left; margin: 1px;font-size: 1em;" (click)=onAddMoviesClick()>
+      <ion-icon name='add' slot='icon-only' color='medium'></ion-icon>
+  </ion-button></ion-item>
+  <ion-item class='search-header'>
+      <ion-input placeholder='Search' clearInput  (keyup)='movieSearch($event)'  type="text"></ion-input>
+      <ion-button  fill='clear' >
+          <ion-icon name='search' slot='icon-only' color='medium'></ion-icon>
+      </ion-button>
+  </ion-item>
   <ion-list>
     <ion-item>
       <ion-col

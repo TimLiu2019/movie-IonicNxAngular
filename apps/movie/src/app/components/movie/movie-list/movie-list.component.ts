@@ -15,6 +15,9 @@ export class MovieListComponent implements OnInit {
   public movieList = new Array<Movie>();
   public movies = new Array<Movie>();
   public temp = new Array<Movie>();
+  public searchInput: string;
+  public onSearch = false;
+
   @Input('genreSelected') genreSelected: any;
   constructor(
     private movieService: MovieListTestDataService,
@@ -24,12 +27,12 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.movies = this.movieService.getMovies();
-    this.movieList = this.moviesFilter();
+    this.movieList = this.movies;
   }
-  ngDoCheck():void{
-    this.movieList = this.moviesFilter();
+  ngDoCheck(): void {
+    this.movieList = !this.onSearch ? this.moviesFilter() : this.movieList;
   }
-  // change like
+  //change like
   onChangeLike(movie: Movie) {
     if (movie.like == true) {
       movie.like = false;
@@ -62,7 +65,8 @@ export class MovieListComponent implements OnInit {
         newMovie.genre = String(data.data.genre);
         newMovie.stock = String(data.data.stock);
         newMovie.rate = String(data.data.rate);
-        this.movieList.push(newMovie);
+        this.movies.push(newMovie);
+        this.movieList = this.movies;
       }
     });
   }
@@ -85,15 +89,16 @@ export class MovieListComponent implements OnInit {
             text: 'Delete',
             handler: () => {
               console.log('Delete the movie');
-              const indexInAll = this.movieList.indexOf(movie);
-              const myClonedArray = cloneDeep(this.movieList);
+              const indexInAll = this.movies.indexOf(movie);
+              const myClonedArray = cloneDeep(this.movies);
               //      console.log('index in all:' + indexInAll);
               try {
                 myClonedArray.splice(indexInAll, 1);
               } catch (e) {
                 console.error(e);
               }
-              this.movieList = myClonedArray;
+              this.movies = myClonedArray;
+              this.movieList = this.movies;
             },
           },
         ],
@@ -104,20 +109,44 @@ export class MovieListComponent implements OnInit {
   }
 
   moviesFilter() {
-   
     if (this.genreSelected == 'listGroupAllGenres') {
       this.temp = this.movies;
-      console.log('genreSelected in list: ', this.genreSelected)
+
+      console.log('genreSelected in list: ', this.genreSelected);
     } else if (this.genreSelected == 'listGroupAction') {
       this.temp = this.movies.filter((item) => item.genre === 'Action');
-      console.log('genreSelected in list: ', this.genreSelected)
+      console.log('genreSelected in list: ', this.genreSelected);
     } else if (this.genreSelected == 'listGroupComedy') {
       this.temp = this.movies.filter((item) => item.genre === 'Comedy');
-      console.log('genreSelected in list: ', this.genreSelected)
+      console.log('genreSelected in list: ', this.genreSelected);
     } else if (this.genreSelected == 'listGroupThriller') {
       this.temp = this.movies.filter((item) => item.genre === 'Thriller');
-      console.log('genreSelected in list: ', this.genreSelected)
+      console.log('genreSelected in list: ', this.genreSelected);
     }
-      return this.temp;
+  //  this.movieList = this.temp;
+    return this.temp;
+  }
+
+  movieSearch(event: any) {
+    const queryTitle = event.target.value.toLowerCase();
+    if (queryTitle !== '') {
+      this.onSearch = true;
+      console.log(queryTitle);
+      console.log(this.onSearch);
+      this.movieList = (queryTitle !== null) ? this.movieList.filter(m =>
+        m.title.toLowerCase().includes(queryTitle.toLowerCase())
+      ) : this.movies;
+      
+    } else{
+      this.movieList = this.movies;
+      this.onSearch = false;
+      console.log(this.onSearch);
+    }
+    console.log(this.movieList);
+  }
+
+  clearInput() {
+    this.searchInput = '';
+    this.movieList = this.movies;
   }
 }
