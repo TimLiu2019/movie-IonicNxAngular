@@ -13,7 +13,7 @@ export class MovieListTestDataService {
       title: 'Air Plane',
       genre: 'Comedy',
       stock: 10,
-      rate: '3.5',
+      rate: 3.5,
       like: true,
     },
     {
@@ -21,7 +21,7 @@ export class MovieListTestDataService {
       title: 'Die Hard',
       genre: 'Action',
       stock: 8,
-      rate: '4',
+      rate: 4,
       like: false,
     },
     {
@@ -29,9 +29,67 @@ export class MovieListTestDataService {
       title: 'Top Gun',
       genre: 'Action',
       stock: 7,
-      rate: '4.5',
+      rate: 4.5,
       like: true,
     },
+    {
+      guid: "5b21ca3eeb7f6fbccd471815",
+      title: "Terminator",
+      genre:  "Action" ,
+      stock: 6,
+      rate: 2.5,
+      publishDate: "2018-01-03T19:04:28.809Z",
+      like:true
+    },
+
+    {
+      guid: "5b21ca3eeb7f6fbccd471817",
+      title: "Get Out",
+      genre: "Thriller" ,
+      stock: 8,
+      rate: 3.5,
+      like: true
+    },
+    {
+      guid: "5b21ca3eeb7f6fbccd471819",
+      title: "Trip to Italy",
+      genre: "Comedy" ,
+      stock: 7,
+      rate: 3.5,
+      like: false
+    },
+
+    {
+      guid: "5b21ca3eeb7f6fbccd47181b",
+      title: "Wedding Crashers",
+      genre: "Comedy",
+      stock: 7,
+      rate: 3.5,
+      like: true
+    },
+    {
+      guid: "5b21ca3eeb7f6fbccd47181e",
+      title: "Gone Girl",
+      genre:  "Thriller",
+      stock: 7,
+      rate: 4.5,
+      like: true
+
+    },
+    {
+      guid: "5b21ca3eeb7f6fbccd47181f",
+      title: "The Sixth Sense",
+      genre: "Thriller" ,
+      stock: 4,
+      rate: 3.5
+    },
+    {
+      guid: "5b21ca3eeb7f6fbccd471821",
+      title: "The Avengers",
+      genre:  "Action" ,
+      stock: 7,
+      rate: 3.5
+    }
   ];
   getMovies() {
    

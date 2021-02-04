@@ -1,7 +1,7 @@
 export class Movie {
   private Guid: string;
   private Title: string;
-  private Rate: string;
+  private Rate: number;
   private Genre: string;
   private Stock: number;
   private Like: boolean;
@@ -24,11 +24,11 @@ export class Movie {
     this.Title = value;
   }
 
-  get rate(): string {
+  get rate(): number {
     return this.Rate;
   }
 
-  set rate(value: string) {
+  set rate(value: number) {
     this.Rate = value;
   }
   get genre(): string {

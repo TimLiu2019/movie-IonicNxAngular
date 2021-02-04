@@ -64,7 +64,7 @@ export class MovieListComponent implements OnInit {
         newMovie.title = String(data.data.title);
         newMovie.genre = String(data.data.genre);
         newMovie.stock = Number(data.data.stock);
-        newMovie.rate = String(data.data.rate);
+        newMovie.rate = Number(data.data.rate);
         this.movies.push(newMovie);
         this.movieList = this.movies;
       }
@@ -134,7 +134,7 @@ export class MovieListComponent implements OnInit {
       console.log(queryTitle);
       console.log(this.onSearch);
       this.movieList = (queryTitle !== null) ? this.movieList.filter(m =>
-        m.title.toLowerCase().includes(queryTitle.toLowerCase())
+        m.title.toLowerCase().includes(queryTitle.toLowerCase() ||  m.genre.toLowerCase().includes(queryTitle.toLowerCase()))
       ) : this.movies;
       
     } else{

@@ -12,8 +12,9 @@ export class AddMovieDialogComponent implements OnInit {
   title: string;
   stock: number;
   genre: string;
-  rate: string;
+  rate: number;
   index: any;
+  genreSelection: any[];
   public addMovieForm: FormGroup;
 
   constructor(
@@ -23,7 +24,7 @@ export class AddMovieDialogComponent implements OnInit {
     this.addMovieForm = this.formBuilder.group({
       title: [''],
       genre: [''],
-      rate: [''],
+      rate: ['',[Validators.required,Validators.min(0), Validators.max(100), Validators.pattern(/\-?\d*\.?\d{1,2}/)]],
       stock: [null ,[Validators.required,Validators.min(0), Validators.max(100), Validators.pattern(/\-?\d*\.?\d{1,2}/)]],
     });
   }
