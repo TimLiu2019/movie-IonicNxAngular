@@ -1,4 +1,6 @@
 # Ionicnx
+Current state
+![](movieApp20210204.gif)
 
 This project was generated using [Nx](https://nx.dev).
 
@@ -97,4 +99,4 @@ Teams using Nx gain the advantage of building full-stack applications with their
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
 
-![](movieApp20210204.gif)
+
