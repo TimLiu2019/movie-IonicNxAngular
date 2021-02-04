@@ -1,5 +1,5 @@
 # Ionicnx
-Current state
+
 ![](movieApp20210204.gif)
 
 This project was generated using [Nx](https://nx.dev).
