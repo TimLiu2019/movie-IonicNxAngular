@@ -17,6 +17,8 @@ export class AddMovieDialogComponent implements OnInit {
   genreSelection: any[];
   public addMovieForm: FormGroup;
 
+  genres = [{name:"Action", value:"Action"}, {name:"Thriller", value:"Thriller"}, {name:"Comedy", value:"Comdey"}];
+
   constructor(
     private formBuilder: FormBuilder,
     private popoverController: PopoverController

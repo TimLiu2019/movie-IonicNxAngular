@@ -5,8 +5,8 @@
   <ion-grid class="smallPadding">
     <ion-list>
       <ion-col>
-        <ion-title style="font-size: 22px; padding: 0; margin: 0"
-          >Add a new movie</ion-title
+        <ion-title style="font-size: 22px; padding: 0; margin: 15px"
+          >Movie Form</ion-title
         >
         <form
           (submit)="logAddMovieForm()"
@@ -14,7 +14,7 @@
           style="padding: 0; margin: 0"
         >
           <ion-item>
-            <ion-label><b>Title: </b></ion-label>
+            <ion-label class="fixedLabel w3-margin-right"><b>Title: </b></ion-label>
             <ion-input
               clearInput
               formControlName="title"
@@ -24,17 +24,13 @@
             ></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label><b>Genre: </b></ion-label>
-            <ion-input
-              clearInput
-              formControlName="genre"
-              required
-              type="text"
-              value="{{ genre }}"
-            ></ion-input>
+            <ion-label class="fixedLabel "><b>Genre: </b></ion-label>
+            <select class="w3-margin-right genre-select" formControlName="genre" >
+                    <option *ngFor="let g of genres" [value]="g.value" >{{g.name}}</option>
+                  </select>
           </ion-item>
           <ion-item>
-            <ion-label><b>Stock: </b></ion-label>
+            <ion-label class=" fixedLabel w3-margin-right"><b>Stock: </b></ion-label>
             <ion-input
               clearInput
               formControlName="stock"
@@ -44,7 +40,7 @@
             ></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label><b>Rate: </b></ion-label>
+            <ion-label class=" fixedLabel w3-margin-right"><b>Rate: </b></ion-label>
             <ion-input
               clearInput
               formControlName="rate"
@@ -54,11 +50,12 @@
             >
             </ion-input>
           </ion-item>
-          <ion-button (click)="closeModal()" fill="clear">Cancel</ion-button>
+          <ion-button (click)="closeModal()" fill="clear" style="text-transform: none" color= "danger">Cancel</ion-button>
           <ion-button
             [disabled]="!addMovieForm.valid"
             fill="clear"
             type="submit"
+            style="float: right; text-transform: none"
             >Add</ion-button
           >
         </form>
