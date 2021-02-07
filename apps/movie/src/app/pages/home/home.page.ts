@@ -36,6 +36,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.render('HOME_MOVIE');
+    document.getElementById('movieBtn').classList.add('home-page-left-btn-clicked');
   }
 
   // doBuildHideOrShow
@@ -115,7 +116,7 @@ export class HomePage implements OnInit, AfterViewInit {
   // Show customers UI
   customersBtnClicked($event: MouseEvent) {
     document
-      .getElementById('customersBtn')
+      .getElementById('movieBtn')
       .classList.remove('home-page-left-btn-clicked');
     document
       .getElementById('customersBtn')
@@ -137,7 +138,7 @@ export class HomePage implements OnInit, AfterViewInit {
   // Show customers UI
   rentalsBtnClicked($event: MouseEvent) {
     document
-      .getElementById('rentalsBtn')
+      .getElementById('movieBtn')
       .classList.remove('home-page-left-btn-clicked');
     document
       .getElementById('rentalsBtn')
