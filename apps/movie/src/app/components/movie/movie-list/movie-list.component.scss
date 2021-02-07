@@ -1,3 +1,11 @@
 .search-header {
     --background: transparent;
 }
+.movies-div {
+    overflow: auto;
+    background-color: #f8f8f8;
+    width: 100%;
+    height: 95%;
+    padding: 0;
+    margin: 10;
+}

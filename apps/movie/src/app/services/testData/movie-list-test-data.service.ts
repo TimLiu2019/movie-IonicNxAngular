@@ -81,15 +81,60 @@ export class MovieListTestDataService {
       title: "The Sixth Sense",
       genre: "Thriller" ,
       stock: 4,
-      rate: 3.5
+      rate: 3.5,
+      like:false
     },
     {
       guid: "5b21ca3eeb7f6fbccd471821",
       title: "The Avengers",
       genre:  "Action" ,
       stock: 7,
-      rate: 3.5
-    }
+      rate: 3.5,
+      like: false
+    },
+
+    {
+      guid: "6b21ca3eeb7f6fbccd471844",
+      title: "The Avengers II ",
+      genre:  "Action" ,
+      stock: 9,
+      rate: 3,
+      like: false
+    },
+    {
+      guid: "7b21ca3eeb7f6fbccd47189f",
+      title: "The Sixth Sense II",
+      genre: "Thriller" ,
+      stock: 5,
+      rate: 2,
+      like:false
+    },
+    {
+      guid: "8b21ca3eeb7f6fbccd471819",
+      title: "Trip to Italy II",
+      genre: "Comedy" ,
+      stock: 7,
+      rate: 3.5,
+      like: false
+    },
+
+    {
+      guid: "6b21ca3eeb7f6fbccd47181b",
+      title: "Wedding Crashers II",
+      genre: "Comedy",
+      stock: 7,
+      rate: 3.5,
+      like: true
+    },
+    {
+      guid: "7b21ca3eeb7f6fbccd47181e",
+      title: "Gone Girl II",
+      genre:  "Thriller",
+      stock: 7,
+      rate: 4.5,
+      like: true
+
+    },
   ];
   getMovies() {
    

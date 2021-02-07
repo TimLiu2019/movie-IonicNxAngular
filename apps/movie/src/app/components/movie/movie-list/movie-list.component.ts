@@ -149,4 +149,11 @@ export class MovieListComponent implements OnInit {
     this.searchInput = '';
     this.movieList = this.movies;
   }
+
+  loadMoviesData(event: any) {
+    console.log('Loading movies started...');
+    setTimeout(() => {
+        event.target.complete();
+    }, 500);
+}
 }
