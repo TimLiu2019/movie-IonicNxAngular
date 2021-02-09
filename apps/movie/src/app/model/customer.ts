@@ -3,6 +3,7 @@ export class Customer {
   private LastName: string;
   private FirstName: string;
   private PhoneNumber: string;
+  private Email: string;
   private CurrentRental: number;
   private Transactions: number;
   private Address: string;
@@ -31,7 +32,7 @@ export class Customer {
     return this.LastName;
   }
 
-  set lastname(value: string) {
+  set lastName(value: string) {
     this.LastName = value;
   }
   get phoneNumber(): string {
@@ -40,6 +41,14 @@ export class Customer {
 
   set phoneNumber(value: string) {
     this.PhoneNumber = value;
+  }
+
+  get email(): string {
+    return this.Email;
+  }
+
+  set email(value: string) {
+    this.Email = value;
   }
 
   get address(): string {
@@ -59,7 +68,7 @@ export class Customer {
   }
 
   get zipCode(): string {
-    return this.zipCode;
+    return this.ZipCode;
   }
 
   set zipCode(value: string) {
