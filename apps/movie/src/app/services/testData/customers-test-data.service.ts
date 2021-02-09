@@ -106,6 +106,7 @@ getCustomers() {
     customer.lastName = c.lastName;
     customer.email = c.email;
     customer.city = c.city;
+    customer.phoneNumber = c.phoneNumber;
     customer.currentRental = c.currentRental;
     customer.transactions = c.transaction;
     console.log('movie ', customer);
