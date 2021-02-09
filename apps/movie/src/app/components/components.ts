@@ -8,7 +8,7 @@ import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { AddMovieDialogComponent } from './movie/add-movie-dialog/add-movie-dialog.component';
 import { ListGroupComponent } from './movie/list-group/list-group.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
-
+import { CustomerInfoComponent } from './customers/customer-info/customer-info.component';
 @NgModule({
     imports: [
 CommonModule,
@@ -17,8 +17,8 @@ CommonModule,
         ReactiveFormsModule,
         HttpClientModule,
     ],
-    declarations: [ MovieListComponent, AddMovieDialogComponent, ListGroupComponent, CustomerListComponent],
-    exports: [MovieListComponent,AddMovieDialogComponent, ListGroupComponent, CustomerListComponent],
+    declarations: [ MovieListComponent, AddMovieDialogComponent, ListGroupComponent, CustomerListComponent, CustomerInfoComponent],
+    exports: [MovieListComponent,AddMovieDialogComponent, ListGroupComponent, CustomerListComponent, CustomerInfoComponent],
 })
 export class ComponentsModule {
 }
