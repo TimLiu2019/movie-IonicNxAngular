@@ -10,6 +10,7 @@ import { ListGroupComponent } from './movie/list-group/list-group.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerInfoComponent } from './customers/customer-info/customer-info.component';
 import { CustomerListItemComponent } from './customers/customer-list-item/customer-list-item.component';
+import { CustomerInfoBarComponent } from './customers/customer-info-bar/customer-info-bar.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import { CustomerListItemComponent } from './customers/customer-list-item/custom
     CustomerListComponent,
     CustomerInfoComponent,
     CustomerListItemComponent,
+    CustomerInfoBarComponent,
   ],
   exports: [
     MovieListComponent,
@@ -33,6 +35,7 @@ import { CustomerListItemComponent } from './customers/customer-list-item/custom
     CustomerListComponent,
     CustomerInfoComponent,
     CustomerListItemComponent,
+    CustomerInfoBarComponent,
   ],
 })
 export class ComponentsModule {}
