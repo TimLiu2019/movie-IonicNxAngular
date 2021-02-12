@@ -12,3 +12,10 @@
 .evenRow{
     --ion-item-background:	lightgray;
 }
+
+.customer-selected {
+    --background: var(--highlight-color-focused);
+    --ion-item-background:#3880ff;
+    --ion-item-color:white;
+    transition: 1s;
+}

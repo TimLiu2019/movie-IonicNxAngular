@@ -12,8 +12,8 @@
     </ion-col>
   </ion-item>
   <ion-list>
-    <div *ngFor="let customer of customers; let i = index" [ngClass]="(i % 2 ==0) ? 'oddRow':'evenRow'">
-      <customer-list-item [customer]="customer" ></customer-list-item>
+    <div [id]='customer.guid' *ngFor="let customer of customers; let i = index" [ngClass]="(i % 2 ==0) ? 'oddRow':'evenRow'" (click)=onSelectedCustomer(customer)>
+      <customer-list-item [customer]="customer"  ></customer-list-item>
     </div>
   </ion-list>
 </div>

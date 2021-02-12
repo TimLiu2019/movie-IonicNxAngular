@@ -9,6 +9,8 @@ import { Customer } from '../../../model/customer';
 })
 export class CustomerListComponent implements OnInit {
   public customers = new Array<Customer>();
+  public previousSelectedCustomer: Customer;
+  public selectedCustomer:string;
   constructor( private customersService: CustomersTestDataService) { }
 
   ngOnInit(): void {
@@ -16,4 +18,17 @@ export class CustomerListComponent implements OnInit {
 
   }
 
+  onSelectedCustomer(customer: Customer){
+    console.log('clicked customer', customer.firstName);
+
+    document.getElementById(customer.guid).classList.add('customer-selected');
+
+    if (this.previousSelectedCustomer !== undefined) {
+      if (localStorage.getItem('selectedCustomerGuid') !== customer.guid) {
+        document.getElementById(localStorage.getItem('selectedCustomerGuid')).classList.remove('customer-selected');
+      }
+    }
+    this.previousSelectedCustomer = customer;
+    localStorage.setItem('selectedCustomerGuid', customer.guid);
+  }
 }
