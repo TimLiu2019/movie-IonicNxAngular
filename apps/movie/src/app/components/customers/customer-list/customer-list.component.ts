@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomersTestDataService } from '../../../services/testData/customers-test-data.service';
 import { Customer } from '../../../model/customer';
+import { MessageServiceService } from '../../../services/message-service.service';
 
 @Component({
   selector: 'customer-list',
@@ -11,7 +12,7 @@ export class CustomerListComponent implements OnInit {
   public customers = new Array<Customer>();
   public previousSelectedCustomer: Customer;
   public selectedCustomer:string;
-  constructor( private customersService: CustomersTestDataService) { }
+  constructor( private customersService: CustomersTestDataService, private messageService: MessageServiceService) { }
 
   ngOnInit(): void {
     this.customers = this.customersService.getCustomers();
@@ -19,6 +20,8 @@ export class CustomerListComponent implements OnInit {
   }
 
   onSelectedCustomer(customer: Customer){
+    
+
     console.log('clicked customer', customer.firstName);
 
     document.getElementById(customer.guid).classList.add('customer-selected');
@@ -30,5 +33,10 @@ export class CustomerListComponent implements OnInit {
     }
     this.previousSelectedCustomer = customer;
     localStorage.setItem('selectedCustomerGuid', customer.guid);
+
+    // pass customer to detail using observable
+
+    this.messageService.sendMessage(customer);
+  
   }
 }
