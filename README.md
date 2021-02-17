@@ -1,6 +1,6 @@
 # Ionicnx
 
-![](movieApp20210204.gif)
+![](movieApp20210216.gif)
 
 This project was generated using [Nx](https://nx.dev).
 
