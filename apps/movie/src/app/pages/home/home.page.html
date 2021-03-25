@@ -68,6 +68,7 @@
     <app-dynamic-content-outlet
       #qtRentalsContainer
     ></app-dynamic-content-outlet>
+    <app-dynamic-content-outlet #qtLoginContainer></app-dynamic-content-outlet>
   </div>
 </ion-content>
 
@@ -86,9 +87,7 @@
 >
   <div class="home-page-left-btn-group">
     <br />
-    <div style="margin: 10em">
-
-    </div>
+    <div style="margin: 10em"></div>
     <button
       class="home-page-left-menu-button"
       (click)="movieBtnClicked($event)"
@@ -113,7 +112,11 @@
       <ion-icon name="copy" class="home-page-left-icon"></ion-icon>
       <br />Rentals
     </button>
-    <button class="home-page-left-menu-button">
+    <button
+      class="home-page-left-menu-button"
+      (click)="loginBtnClicked($event)"
+      id="loginBtn"
+    >
       <ion-icon name="log-in" class="home-page-left-icon"></ion-icon>
       <br />Login
     </button>

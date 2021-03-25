@@ -1,0 +1,18 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+  - url: /
+    static_files: dist/movie/index.html
+    upload: dist/movie/index.html
+
+  - url: /
+    static_dir: dist/movie
+
+skip_files:
+  - node_modules/
+  - ^(.*/)?app\.yaml
+  - ^(.*/)?app\.yml
+  - ^(.*/)?index\.yaml
+  - ^(.*/)?index\.yml

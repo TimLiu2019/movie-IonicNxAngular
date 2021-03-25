@@ -48,4 +48,12 @@ export const DynamicContentOutletRegistry: RegistryItem[] = [
       'apps/movie/src/app/pages/home/dynamic-content-outlet/dynamic-components-map.module',
     moduleName: 'DynamicComponentsMapModule',
   },
+
+  {
+    componentName: 'LoginComponent',
+    elementType: 'HOME_LOGIN',
+    modulePath:
+      'apps/movie/src/app/pages/home/dynamic-content-outlet/dynamic-components-map.module',
+    moduleName: 'DynamicComponentsMapModule',
+  },
 ];

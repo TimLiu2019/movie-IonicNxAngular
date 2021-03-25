@@ -8,11 +8,12 @@ import { MtWebTier1ABasementModule } from '../../../../../../../libs/utils/mt-we
 import { MovieComponent } from '../movie/movie.component';
 import { CustomersComponent } from '../../../components/customers/customers.component';
 import { RentalsComponent } from '../../../components/rentals/rentals.component';
+import { LoginComponent } from '../../../components/login/login.component';
 
 @NgModule({
   declarations: [MovieComponent],
   imports: [
-  CommonModule,
+CommonModule,
     IonicModule,
     DynamicContentOutletModule,
     ComponentsModule,
@@ -27,6 +28,7 @@ export class DynamicComponentsMapModule {
   static dynamicComponentsMap = {
     MovieComponent,
     CustomersComponent,
-    RentalsComponent
+    RentalsComponent,
+    LoginComponent
   };
 }

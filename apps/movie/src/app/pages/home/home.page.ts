@@ -24,6 +24,9 @@ export class HomePage implements OnInit, AfterViewInit {
   @ViewChild('qtRentalsContainer', { static: true })
   qtRentalsUI: DynamicContentOutletComponent;
 
+  @ViewChild('qtLoginContainer', { static: true })
+  qtLoginUI: DynamicContentOutletComponent;
+
   public previousClickedBtn: string;
 
   // constructor
@@ -88,6 +91,11 @@ export class HomePage implements OnInit, AfterViewInit {
       registryComponent,
       this.qtRentalsUI
     );
+    this.doBuildHideOrShow(
+      'HOME_LOGIN',
+      registryComponent,
+      this.qtLoginUI
+    );
   }
 
   // movieBtnClicked
@@ -134,8 +142,8 @@ export class HomePage implements OnInit, AfterViewInit {
     this.render('HOME_CUSTOMERS');
   }
 
-  // customersBtnClicked
-  // Show customers UI
+  // rentalBtnClicked
+  // Show rental UI
   rentalsBtnClicked($event: MouseEvent) {
     document
       .getElementById('movieBtn')
@@ -154,5 +162,27 @@ export class HomePage implements OnInit, AfterViewInit {
     this.previousClickedBtn = 'rentalsBtn';
     localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
     this.render('HOME_RENTALS');
+  }
+
+    // loginBtnClicked
+  // Show login UI
+  loginBtnClicked($event: MouseEvent) {
+    document
+      .getElementById('loginBtn')
+      .classList.remove('home-page-left-btn-clicked');
+    document
+      .getElementById('loginBtn')
+      .classList.add('home-page-left-btn-clicked');
+    if (this.previousClickedBtn !== undefined) {
+      if (localStorage.getItem('clickedLeftMenuBtn') !== 'loginBtn') {
+        console.log(localStorage.getItem('clickedLeftMenuBtn'));
+        document
+          .getElementById(localStorage.getItem('clickedLeftMenuBtn'))
+          .classList.remove('home-page-left-btn-clicked');
+      }
+    }
+    this.previousClickedBtn = 'loginBtn';
+    localStorage.setItem('clickedLeftMenuBtn', this.previousClickedBtn);
+    this.render('HOME_LOGIN');
   }
 }

@@ -15,9 +15,10 @@ import { DynamicContentOutletModule } from './pages/home/dynamic-content-outlet/
 import { CustomersComponent } from './components/customers/customers.component';
 import { RentalsComponent } from './components/rentals/rentals.component';
 import { ComponentsModule } from './components/components';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, CustomersComponent, RentalsComponent],
+  declarations: [AppComponent, CustomersComponent, RentalsComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
