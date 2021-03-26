@@ -16,6 +16,9 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { RentalsComponent } from './components/rentals/rentals.component';
 import { ComponentsModule } from './components/components';
 import { LoginComponent } from './components/login/login.component';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+
 
 @NgModule({
   declarations: [AppComponent, CustomersComponent, RentalsComponent, LoginComponent],
@@ -28,6 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     DynamicContentOutletModule,
     CommonModule,
     ComponentsModule,
+    NzFormModule,
+    NzInputModule
   ],
   providers: [
     StatusBar,

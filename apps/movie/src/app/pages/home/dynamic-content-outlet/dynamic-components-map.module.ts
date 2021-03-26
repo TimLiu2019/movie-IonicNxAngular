@@ -9,6 +9,9 @@ import { MovieComponent } from '../movie/movie.component';
 import { CustomersComponent } from '../../../components/customers/customers.component';
 import { RentalsComponent } from '../../../components/rentals/rentals.component';
 import { LoginComponent } from '../../../components/login/login.component';
+import { NzFormModule } from 'ng-zorro-antd/form';
+
+
 
 @NgModule({
   declarations: [MovieComponent],
@@ -19,6 +22,8 @@ CommonModule,
     ComponentsModule,
     MtWebTier1ABasementModule,
     UiKitMtWebSharedComponentsModule,
+  
+  
   ],
   entryComponents: [MovieComponent],
 })

@@ -8,6 +8,7 @@ import {RouterModule} from "@angular/router";
 import {DynamicContentOutletModule} from "./dynamic-content-outlet/dynamic-content-outlet.module";
 import { MovieComponent } from './movie/movie.component';
 import { ComponentsModule } from '../../components/components';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../components/components';
     CommonModule,
     FormsModule,
     ComponentsModule,
-    
+    NzFormModule,
+  
     RouterModule.forChild([
       {
         path: '',
